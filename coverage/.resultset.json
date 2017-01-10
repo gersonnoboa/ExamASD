@@ -1,0 +1,43 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/helpers/application_helper.rb": [
+        0,
+        0
+      ],
+      "/home/gerson/Documentos/S1/ASD/Exam/Exam/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1484036796
+  }
+}
