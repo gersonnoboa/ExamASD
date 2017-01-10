@@ -22,4 +22,23 @@ Scenario: Empty if no input
   And I fill in the end date with: '2016-01-10 00:00:00'
   And I fill in the city with: 'Quito'
   Then I should see nothing
+
+Scenario: Empty when there are reservations
+  Given I fill in the start date with: '2016-01-10 00:00:00'
+  And I fill in the end date with: '2016-01-16 00:00:00'
+  And I fill in the city with: 'Quito'
+  Then I should see nothing
+
+Scenario: Empty when everything's free but not the same city
+  Given I fill in the start date with: '2016-01-20 00:00:00'
+  And I fill in the end date with: '2016-01-21 00:00:00'
+  And I fill in the city with: 'Guayaquil'
+  Then I should see data
+
+Scenario: List when everything's free
+  Given I fill in the start date with: '2016-01-20 00:00:00'
+  And I fill in the end date with: '2016-01-21 00:00:00'
+  And I fill in the city with: 'Quito'
+  Then I should see data
+  
   

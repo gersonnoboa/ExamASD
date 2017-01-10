@@ -12,21 +12,29 @@ Given /the following reservations exist/ do |movies_table|
   
 end
 
-When /I fill the start date with: (.*)/ do |value|
-  When /I fill in start_date with value/
-end
-
-When /I fill the end date with: (.*)/ do |value|
-  When /I fill in end_date with value/
-end
-
-When /I fill the city with: (.*)/ do |value|
-  When /I fill in city_location with value/
-end
-
 Then /I should see nothing/ do
-  # Make sure that all the movies in the app are visible in the table
-  dbCount = Movie.all.count
   tableCount = page.all('#properties tr').size - 1
   expect(tableCount).to eq 0
+end
+
+Given(/^I fill in the start date with: '(\d+)\-(\d+)\-(\d+) (\d+):(\d+):(\d+)'$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
+  fill_in "start_date", :with => arg1 + "-" + arg2 + "-" + arg3 + " " + arg4 + ":" + arg5 + ":" + arg6
+end
+
+Given(/^I fill in the end date with: '(\d+)\-(\d+)\-(\d+) (\d+):(\d+):(\d+)'$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
+  fill_in "end_date", :with => arg1 + "-" + arg2 + "-" + arg3 + " " + arg4 + ":" + arg5 + ":" + arg6
+end
+
+Given(/^I fill in the city with: 'Quito'$/) do
+  fill_in "city_location", :with => 'Quito'
+end
+
+Given(/^I fill in the city with: 'Guayaquil'$/) do
+  fill_in "city_location", :with => 'Guayaquil'
+end
+
+Then /I should see data/ do
+  # Make sure that all the movies in the app are visible in the table
+  tableCount = page.all('#movies tr').size
+  expect(tableCount).not_to eq 0
 end
