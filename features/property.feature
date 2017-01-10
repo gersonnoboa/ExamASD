@@ -18,15 +18,36 @@ Background: Info added to DB
   And I am on the home page
 
 Scenario: Empty if no input
-  Given I fill in the start date with: '2016-01-10 00:00:00'
-  And I fill in the end date with: '2016-01-10 00:00:00'
+  Given I fill in the start date with: ''
+  And I fill in the end date with: ''
   And I fill in the city with: 'Quito'
+  And I press "Refresh"
+  Then I should see nothing
+
+Scenario: Empty if no city
+  Given I fill in the start date with: '2016-01-10 00:00:00'
+  And I fill in the end date with: '2016-01-16 00:00:00'
+  And I fill in the city with: ''
   And I press "Refresh"
   Then I should see nothing
 
 Scenario: Empty when there are reservations
   Given I fill in the start date with: '2016-01-10 00:00:00'
   And I fill in the end date with: '2016-01-16 00:00:00'
+  And I fill in the city with: 'Quito'
+  And I press "Refresh"
+  Then I should see nothing
+
+Scenario: Empty when there are reservations before
+  Given I fill in the start date with: '2016-01-09 00:00:00'
+  And I fill in the end date with: '2016-01-11 00:00:00'
+  And I fill in the city with: 'Quito'
+  And I press "Refresh"
+  Then I should see nothing
+
+Scenario: Empty when there are reservations after
+  Given I fill in the start date with: '2016-01-16 00:00:00'
+  And I fill in the end date with: '2016-01-20 00:00:00'
   And I fill in the city with: 'Quito'
   And I press "Refresh"
   Then I should see nothing

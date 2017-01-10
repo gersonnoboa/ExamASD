@@ -33,8 +33,20 @@ Given(/^I fill in the city with: 'Guayaquil'$/) do
   fill_in "city_location", :with => 'Guayaquil'
 end
 
+Given(/^I fill in the city with: ''$/) do
+  fill_in "city_location", :with => ''
+end
+
 Then /I should see data/ do
   # Make sure that all the movies in the app are visible in the table
   tableCount = page.all('#movies tr').size
   expect(tableCount).not_to eq 0
+end
+
+Given(/^I fill in the start date with: ''$/) do
+  fill_in "start_date", :with => ""
+end
+
+Given(/^I fill in the end date with: ''$/) do
+  fill_in "end_date", :with => ""
 end

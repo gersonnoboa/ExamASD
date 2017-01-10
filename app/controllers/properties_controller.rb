@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
 
   def property_params
-    params.require(:property).permit(:start_date, :end_date)
+    params.require(:property).permit(:start_date, :end_date, :city)
   end
 
   def index
