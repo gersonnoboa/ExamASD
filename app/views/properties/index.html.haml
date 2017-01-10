@@ -1,33 +1,40 @@
-%h1 All Properties
 
-%label= "Start Date"
-%input{:type=>"text", :id=>"start_date"}
+= form_tag properties_path, :method => :get, :id => 'ratings_form' do
+  
+  
+  = submit_tag 'Refresh', :id => 'ratings_submit'
 
-%label= "End Date"
-%input{:type=>"text", :id=>"end_date"}
+  %h1 All Properties
 
-%label= "Location"
-%input{:type=>"text", :id=>"city_location"}
+  %label= "Start Date"
+  %input{:type=>"text", :id=>"start_date"}
 
-%table#properties
-  %thead
-    %tr
-      %th Cost
-      %th Lat
-      %th Lng
-      %th Area
-      %th Location
-      %th Kitchen
-      %th Beds
-      %th Wifi
-  %tbody
-    - @properties.each do |property|
+  %label= "End Date"
+  %input{:type=>"text", :id=>"end_date"}
+
+  %label= "Location"
+  %input{:type=>"text", :id=>"city_location"}
+
+  %table#properties
+    %thead
       %tr
-        %td= property.cost
-        %td= property.lat
-        %td= property.lng
-        %td= property.area
-        %td= property.location
-        %td= property.kitchen
-        %td= property.beds
-        %td= property.wifi
+        %th Cost
+        %th Lat
+        %th Lng
+        %th Area
+        %th Location
+        %th Kitchen
+        %th Beds
+        %th Wifi
+    %tbody
+      - @properties.each do |property|
+        %tr
+          %td= property.cost
+          %td= property.lat
+          %td= property.lng
+          %td= property.area
+          %td= property.location
+          %td= property.kitchen
+          %td= property.beds
+          %td= property.wifi
+
