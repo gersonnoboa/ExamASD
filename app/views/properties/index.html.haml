@@ -11,8 +11,6 @@
       %th Kitchen
       %th Beds
       %th Wifi
-      %th Av Initial
-      %th Av Final
   %tbody
     - @properties.each do |property|
       %tr
@@ -24,7 +22,3 @@
         %td= property.kitchen
         %td= property.beds
         %td= property.wifi
-        %td= property.availability_initial
-        %td= property.availability_final
-
-        
