@@ -5,21 +5,34 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = Property.all
+    @properties = get_properties(params[:start_date], params[:end_date], params[:city])
   end
 
-  def get_properties start_date, end_date
+  def get_properties start_date, end_date, city
     @properties = []
 
-    if start_date == "" || end_date == "" || (start_date == end_date) || (start_date > end_date)
+    if start_date == "" || end_date == "" || (start_date == end_date) || (start_date > end_date) || city == ""
       
     else
-      reservations_between_start = Reservations.where("? BETWEEN start_date AND end_date", start_date)
-      reservations_between_end = Reservations.where("? BETWEEN start_date AND end_date", end_date)
 
-      final_reservations = reservations_between_end.each { |e|
-        
+      startr = Reservation.where('start_date <= ? AND end_date >= ?', start_date, start_date)
+
+      endr = Reservation.where('start_date <= ? AND end_date >= ?', end_date, end_date)
+      
+      finalr = (startr + endr).uniq
+
+      all = Property.where("location = ?", city)
+
+      all.each { |e|  
+        if finalr.any?{|a| a.property_id == e.id}
+
+        else
+
+          @properties.push(e)
+        end
       }
+
+
     end
 
     return @properties

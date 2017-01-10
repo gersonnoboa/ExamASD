@@ -15,12 +15,6 @@ FactoryGirl.define do
   factory :reservation do |f|
     f.property_id 1
     f.start_date '10-Jan-2016'
-    f.end_date '16-Jan-2016'
-  end
-
-  factory :one_day_reservation do |f|
-    f.property_id 1
-    f.start_date '10-Jan-2016'
-    f.end_date '11-Jan-2016'
+    f.end_date '12-Jan-2016'
   end
 end
